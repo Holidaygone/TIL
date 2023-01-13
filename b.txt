@@ -41,3 +41,354 @@ Staging Area = 커밋으로 남기고 싶은, 특정 버전으로 관리하고 �
 
 Repository = 커밋(commit)들이 저장되는 곳
 커밋 = 코드 변화 기록
+
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit]
+$ git init
+Initialized empty Git repository in C:/Users/SSAFY/Desktop/[edu_git_commit]/.git/
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ touch a.txt
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git add .
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   a.txt
+
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git commit =m "add a.txt"
+error: pathspec '=m' did not match any file(s) known to git
+error: pathspec 'add a.txt' did not match any file(s) known to git
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git commit -m "add a.txt"
+[master (root-commit) f3f1248] add a.txt        
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 a.txt
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ touch b.txt
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ add .
+bash: add: command not found
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git add .
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   b.txt
+
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git commit -m "add b.txt"
+[master 5ec82d7] add b.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 b.txt
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git commit -m "update a.txt"
+On branch master
+nothing to commit, working tree clean
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git commit -m "update a.txt"
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   a.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git log
+commit 5ec82d7d76056ca38503228425490c31c17f6df6 (HEAD -> master)
+Author: Holidaygone <aminyukino@gmail.com>
+Date:   Fri Jan 13 16:17:20 2023 +0900
+
+    add b.txt
+
+commit f3f1248ece74f120179bd5151fadda57df783c98
+Author: Holidaygone <aminyukino@gmail.com>
+Date:   Fri Jan 13 16:16:33 2023 +0900
+
+    add a.txt
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git add .
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git commit -m "update a.txt"
+[master a064e5a] update a.txt
+ 1 file changed, 1 insertion(+)
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git log
+commit a064e5a3e7e44ae52c9d3219cc12aa82578c22bd (HEAD -> master)
+Author: Holidaygone <aminyukino@gmail.com>
+Date:   Fri Jan 13 16:19:51 2023 +0900
+
+    update a.txt
+
+commit 5ec82d7d76056ca38503228425490c31c17f6df6
+Author: Holidaygone <aminyukino@gmail.com>
+Date:   Fri Jan 13 16:17:20 2023 +0900
+
+    add b.txt
+
+commit f3f1248ece74f120179bd5151fadda57df783c98
+Author: Holidaygone <aminyukino@gmail.com>
+Date:   Fri Jan 13 16:16:33 2023 +0900
+
+    add a.txt
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git diff
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git diff a064e5a3e7e44ae52c9d3219cc12aa82578c22bd1 5ec82d7d76056ca38503228425490c31c17f6df61        
+fatal: ambiguous argument 'a064e5a3e7e44ae52c9d3219cc12aa82578c22bd1': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git diff a064e5a3e7e44ae52c9d3219cc12aa82578c22bd 5ec82d7d76056ca38503228425490c31c17f6df61
+fatal: ambiguous argument '5ec82d7d76056ca38503228425490c31c17f6df61': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git diff a064e5a3e7e44ae52c9d3219cc12aa82578c22bd5ec82d7d76056ca38503228425490c31c17f6df61
+fatal: ambiguous argument 'a064e5a3e7e44ae52c9d3219cc12aa82578c22bd5ec82d7d76056ca38503228425490c31c17f6df61': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git diff a064e5a3e7e44ae52c9d3219cc12aa82578c22bd15ec82d7d76056ca38503228425490c31c17f6df61
+fatal: ambiguous argument 'a064e5a3e7e44ae52c9d3219cc12aa82578c22bd15ec82d7d76056ca38503228425490c31c17f6df61': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git diff a064e5a3e7e44ae52c9d3219cc12aa82578c22bd--5ec82d7d76056ca38503228425490c31c17f6df61
+fatal: ambiguous argument 'a064e5a3e7e44ae52c9d3219cc12aa82578c22bd--5ec82d7d76056ca38503228425490c31c17f6df61': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git diff
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git diff [a064e5a3e7e44ae52c9d3219cc12aa82578c22bd1] [5ec82d7d76056ca38503228425490c31c17f6df61]    
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git log
+commit a064e5a3e7e44ae52c9d3219cc12aa82578c22bd (HEAD -> master)
+Author: Holidaygone <aminyukino@gmail.com>
+Date:   Fri Jan 13 16:19:51 2023 +0900
+
+    update a.txt
+
+commit 5ec82d7d76056ca38503228425490c31c17f6df6
+Author: Holidaygone <aminyukino@gmail.com>
+Date:   Fri Jan 13 16:17:20 2023 +0900
+
+    add b.txt
+
+commit f3f1248ece74f120179bd5151fadda57df783c98
+Author: Holidaygone <aminyukino@gmail.com>
+Date:   Fri Jan 13 16:16:33 2023 +0900
+
+    add a.txt
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git remote add origin https://github.com/Holidaygone/edu_git_commit.git
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git push -u origin master
+
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git branch -M master
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git remote add origin https://github.com/Holidaygone/edu_git_commit.git
+error: remote origin already exists.
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git push -u origin master
+info: please complete authentication in your browser...
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (8/8), 659 bytes | 329.00 KiB/s, done.
+Total 8 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/Holidaygone/edu_git_commit.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'origin/master'.
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ echo "# TIL" >> README.md
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git init
+Reinitialized existing Git repository in C:/Users/SSAFY/Desktop/[edu_git_commit]/.git/
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git add README.md
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git add README.md
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git commit -m "first commit"
+[master 0375606] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git remote add origin https://github.com/Holidaygone/TIL.git
+error: remote origin already exists.
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git push -u origin master
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 307 bytes | 307.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/Holidaygone/edu_git_commit.git
+   a064e5a..0375606  master -> master
+branch 'master' set up to track 'origin/master'.
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git branch -M master
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git remote add origin https://github.com/Holidaygone/TIL.git
+error: remote origin already exists.
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git remote remove origin
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git remote add origin https://github.com/Holidaygone/TIL.git
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git push -u origin master
+Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (11/11), 934 bytes | 467.00 KiB/s, done.
+Total 11 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/Holidaygone/TIL.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'origin/master'.
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git push -u origin master
+Everything up-to-date
+branch 'master' set up to track 'origin/master'.
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git log
+commit 0375606db7cc3fe8e74f3a213b3ced495e89c407 (HEAD -> master, origin/master)
+Author: Holidaygone <aminyukino@gmail.com>
+Date:   Fri Jan 13 16:37:45 2023 +0900
+
+    first commit
+
+commit a064e5a3e7e44ae52c9d3219cc12aa82578c22bd
+Author: Holidaygone <aminyukino@gmail.com>
+Date:   Fri Jan 13 16:19:51 2023 +0900
+
+    update a.txt
+
+commit 5ec82d7d76056ca38503228425490c31c17f6df6
+Author: Holidaygone <aminyukino@gmail.com>
+Date:   Fri Jan 13 16:17:20 2023 +0900
+
+    add b.txt
+
+commit f3f1248ece74f120179bd5151fadda57df783c98
+Author: Holidaygone <aminyukino@gmail.com>
+Date:   Fri Jan 13 16:16:33 2023 +0900
+
+    add a.txt
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git remote -v
+origin  https://github.com/Holidaygone/TIL.git (fetch)
+origin  https://github.com/Holidaygone/TIL.git (push)
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git push origin master
+Everything up-to-date
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git commit -m "수업내용 정리"
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   b.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git add.
+git: 'add.' is not a git command. See 'git --help'.
+
+The most similar command is
+        add
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git add .
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git commit -m "수업내용 정리"
+[master 1730aab] 수업내용 정리
+ 1 file changed, 43 insertions(+)
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git add .
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git commit -m "수업내용 정리2"
+[master e010e6a] 수업내용 정리2
+ 1 file changed, 18 insertions(+), 1 deletion(-)
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$ git push origin master
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 1.22 KiB | 1.22 MiB/s, done.
+Total 6 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/Holidaygone/TIL.git
+   0375606..e010e6a  master -> master
+
+SSAFY@DESKTOP-DOGVPUB MINGW64 ~/Desktop/[edu_git_commit] (master)
+$
