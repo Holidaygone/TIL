@@ -1,1 +1,18 @@
-dfadfa
+	
+서지호[구미_3반]
+오후 4:37
+echo "# edu_git_commit" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/NEU-chaldea/edu_git_commit.git
+git push -u origin master
+
+오후 4:37
+
+
+
+
+
+
+url 각자 변경
